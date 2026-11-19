@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Birdie Mafia Website Review</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Questrial&display=swap">
+<style>
+/* Same dark brand look as the polo vote: black band, numbered steps, cards, sticky progress bar. */
+:root {
+  --ink: #0b0b0b; --panel: #161616; --line: #2a2a2a; --paper: #f4f4f2; --muted: #a3a29c; --yellow: #feec45;
+  --display: "Oswald", "Arial Narrow", sans-serif; --body: "Century Gothic", "Questrial", "Avenir", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+img { max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top { border-bottom: 1px solid var(--line); }
+.top .wrap { padding-block: 32px 28px; display: grid; gap: 18px; }
+.top img { width: 190px; height: auto; }
+h1 { font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--yellow); }
+.intro { max-width: 66ch; color: var(--muted); margin: 0; }
+.intro strong { color: var(--paper); font-weight: 400; }
+.status { margin: 0; max-width: 70ch; padding: 10px 14px; background: var(--panel); border-left: 3px solid var(--yellow); color: var(--paper); font-size: 14px; }
+main .wrap { padding-block: 8px 130px; display: grid; gap: 48px; }
+section { display: grid; gap: 18px; }
+.sec { display: grid; gap: 6px; padding-top: 36px; border-top: 1px solid var(--line); }
+section:first-of-type .sec { border-top: 0; }
+.step { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: var(--ink); background: var(--yellow); padding: 3px 8px; width: max-content; }
+h2 { font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: 26px; letter-spacing: 0.04em; margin: 0; }
+.sec p { margin: 0; color: var(--muted); max-width: 70ch; }
+.sec p strong { color: var(--paper); font-weight: 400; }
+label.lbl, .q { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; color: var(--yellow); }
+.field { display: grid; gap: 8px; max-width: 560px; }
+input[type=text], textarea { width: 100%; font: inherit; font-size: 15px; color: var(--paper); background: var(--ink); border: 1px solid var(--line); padding: 9px 12px; }
+input[type=text]:focus, textarea:focus { outline: none; border-color: var(--yellow); }
+textarea { resize: vertical; font-size: 14px; min-height: 64px; }
+.seg { display: flex; flex-wrap: wrap; }
+.opt { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; padding: 9px 14px; background: transparent; color: var(--paper); border: 1px solid var(--line); cursor: pointer; min-width: 44px; }
+.opt + .opt { border-left: 0; }
+.opt:hover { color: var(--yellow); }
+.opt[aria-pressed="true"] { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.opt[data-v="stuck"][aria-pressed="true"], .opt[data-v="no"][aria-pressed="true"] { background: var(--paper); border-color: var(--paper); }
+.opt:focus-visible, .cta:focus-visible, .shot:focus-visible, .zbtn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.cta { display: inline-block; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 15px; padding: 12px 22px; background: var(--yellow); color: var(--ink); border: 0; cursor: pointer; text-decoration: none; }
+.cta.ghost { background: transparent; color: var(--yellow); border: 1px solid var(--yellow); }
+.panel { background: var(--panel); border: 1px solid var(--line); padding: 16px; display: grid; gap: 12px; }
+.tasks { display: grid; gap: 14px; }
+.task { display: grid; gap: 10px; }
+.task .t { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.task .t b { font-weight: 400; flex: 1 1 260px; }
+.task .t .n { font-family: var(--display); color: var(--yellow); font-size: 18px; min-width: 1.4em; }
+.task textarea { max-width: 560px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+@media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--panel); border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.card.done { border-color: var(--yellow); }
+.meta { display: flex; align-items: baseline; gap: 12px; padding: 14px 16px 4px; }
+.num { font-family: var(--display); font-size: 15px; color: var(--yellow); font-variant-numeric: tabular-nums; }
+h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.03em; font-size: 19px; margin: 0; flex: 1; min-width: 0; }
+.card > p { margin: 0; padding: 0 16px 12px; color: var(--muted); font-size: 14px; }
+.shots { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 0 16px; align-items: start; }
+.shot { display: block; position: relative; background: #1f1f1f; border: 1px solid var(--line); cursor: zoom-in; overflow: hidden; }
+.shot img { display: block; width: 100%; height: auto; }
+.shot.m { width: 118px; }
+@media (max-width: 860px) { .shots { grid-template-columns: auto 1fr; } .shot.m { order: -1; width: 150px; } }
+.shot .tag { position: absolute; left: 0; bottom: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; background: rgba(11,11,11,.85); color: var(--paper); padding: 3px 7px; }
+.shot:hover .tag { color: var(--yellow); }
+.rate { display: grid; gap: 6px; padding: 14px 16px 0; }
+.rate .q { color: var(--muted); }
+.stars { display: flex; align-items: stretch; }
+.stars .opt { flex: 1; padding-inline: 0; font-size: 15px; }
+.ends { display: flex; justify-content: space-between; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; color: var(--muted); }
+.note { display: grid; gap: 6px; padding: 10px 16px 16px; }
+.note label { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: var(--muted); }
+.overall { display: grid; gap: 22px; max-width: 640px; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--yellow); color: var(--ink); padding-bottom: env(safe-area-inset-bottom, 0px); z-index: 5; }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 12px; }
+.bar .prog { flex: 1; min-width: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 16px; }
+.bar .save { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; opacity: .75; }
+.bar .cta { background: var(--ink); color: var(--yellow); font-size: 13px; padding: 8px 16px; }
+.thanks { padding: 18px; background: var(--panel); border: 1px solid var(--yellow); max-width: 560px; }
+.thanks h3 { font-size: 24px; margin-bottom: 6px; }
+.thanks p { margin: 0; color: var(--muted); }
+/* Zoom: a full-screen scroller. Tall pages scroll naturally; +/- change the image width. */
+.zoom { position: fixed; inset: 0; z-index: 20; background: var(--ink); display: flex; flex-direction: column; }
+.zoom-bar { display: flex; align-items: center; gap: 8px; padding-top: calc(10px + env(safe-area-inset-top, 0px)); padding-bottom: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 1px solid var(--line); }
+.zoom-title { flex: 1; min-width: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.zoom-title span { color: var(--yellow); margin-right: 10px; }
+.zbtn { font-family: var(--display); font-size: 16px; min-width: 40px; height: 40px; padding: 0 12px; background: transparent; color: var(--paper); border: 1px solid var(--line); cursor: pointer; }
+.zbtn:hover { border-color: var(--yellow); color: var(--yellow); }
+.zoom-pct { font-family: var(--display); font-size: 13px; color: var(--muted); min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
+.zoom-stage { flex: 1 1 auto; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; text-align: center; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.zoom-stage img { display: inline-block; height: auto; vertical-align: top; }
+@media (max-width: 560px) { .zoom-bar { flex-wrap: wrap; } .zoom-title { flex-basis: 100%; } .zoom-pct { display: none; } }
+/* Results (Dan only, via #results=key) */
+.results { display: grid; gap: 28px; }
+.rtable { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rtable th, .rtable td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.rtable th { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: var(--muted); font-weight: 400; }
+.rtable .avg { font-family: var(--display); font-size: 20px; color: var(--yellow); }
+.rtable .dist { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.rlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14px; }
+.rlist b { font-weight: 400; color: var(--yellow); }
+</style>
+<script src="config.js"></script>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <img src="logo-white.png" alt="Birdie Mafia" width="1198" height="433">
+  <h1>Website review <em>The new Birdie Mafia</em></h1>
+  <p class="intro" id="intro">Before the new site goes live, have a poke around and tell us what you reckon. Three parts: <strong>try it</strong> on the real preview, <strong>rate each page</strong> (tap any screenshot to see the whole page), then <strong>a few quick questions</strong>. Nobody else sees your answers. It saves as you go, so you can come back and finish later. Ten minutes, tops.</p>
+  <p class="status" id="status" role="status" hidden></p>
+  <div class="panel" id="whobox">
+    <div class="field">
+      <label class="lbl" for="name-in">First, who's this?</label>
+      <input id="name-in" type="text" maxlength="40" autocomplete="name" placeholder="Your name or nickname">
+    </div>
+    <div class="field">
+      <span class="q">iPhone or Android?</span>
+      <div class="seg" data-key="device" role="group" aria-label="Phone">
+        <button type="button" class="opt" data-v="iphone" aria-pressed="false">iPhone</button>
+        <button type="button" class="opt" data-v="android" aria-pressed="false">Android</button>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<main><div class="wrap" id="form">
+  <section id="try">
+    <header class="sec"><span class="step">Part 1</span><h2>Try it for real</h2>
+      <p>Open the preview site (it opens in a new tab, no password needed), then try these three things. Come back here and tell us how each one went.</p></header>
+    <p><a class="cta" href="https://s6eymnm249u4lq4d-72857780480.shopifypreview.com/" target="_blank" rel="noopener">Open the preview site &rarr;</a></p>
+    <div class="panel tasks"><div class="task" data-task="price"><div class="t"><span class="n">1</span><b>Find out how much the Birdie Boom costs.</b><div class="seg" data-key="task.price" role="group" aria-label="Task 1"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-price">What tripped you up?</label><textarea id="tnote-price" data-key="task.price.note" rows="2" maxlength="1000"></textarea></div></div><div class="task" data-task="cart"><div class="t"><span class="n">2</span><b>Add the Cart Essentials Bundle to your cart.</b><div class="seg" data-key="task.cart" role="group" aria-label="Task 2"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-cart">What tripped you up?</label><textarea id="tnote-cart" data-key="task.cart.note" rows="2" maxlength="1000"></textarea></div></div><div class="task" data-task="ship"><div class="t"><span class="n">3</span><b>Find out how long shipping takes to get to you.</b><div class="seg" data-key="task.ship" role="group" aria-label="Task 3"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-ship">What tripped you up?</label><textarea id="tnote-ship" data-key="task.ship.note" rows="2" maxlength="1000"></textarea></div></div></div>
+  </section>
+
+  <section id="pages">
+    <header class="sec"><span class="step">Part 2</span><h2>Page by page</h2>
+      <p>How does each page feel? <strong>1 is rough, 5 is love it.</strong> Tap a screenshot to see the whole page. Phone view first, the computer view is there too. Comments are optional but gold.</p></header>
+    <div class="grid"><article class="card" data-page="home"><div class="meta"><span class="num">01</span><h3>Home page</h3></div><p>First impression. Does it make you want to keep looking?</p><div class="shots"><a class="shot d" href="img/full/home-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/home-desktop.jpg" width="960" height="600" alt="Home page on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/home-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/home-mobile.jpg" width="236" height="511" alt="Home page on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.home.rating" role="group" aria-label="Rating for Home page"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-home">Anything to say about it?</label><textarea id="note-home" data-key="page.home.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="boom"><div class="meta"><span class="num">02</span><h3>Birdie Boom</h3></div><p>The speaker. Is it clear what it is, what it costs and why you'd want one?</p><div class="shots"><a class="shot d" href="img/full/boom-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/boom-desktop.jpg" width="960" height="600" alt="Birdie Boom on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/boom-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/boom-mobile.jpg" width="236" height="511" alt="Birdie Boom on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.boom.rating" role="group" aria-label="Rating for Birdie Boom"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-boom">Anything to say about it?</label><textarea id="note-boom" data-key="page.boom.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="caddy"><div class="meta"><span class="num">03</span><h3>Birdie Phone Caddy</h3></div><p>The magnetic phone mount. Same test.</p><div class="shots"><a class="shot d" href="img/full/caddy-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/caddy-desktop.jpg" width="960" height="600" alt="Birdie Phone Caddy on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/caddy-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/caddy-mobile.jpg" width="236" height="511" alt="Birdie Phone Caddy on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.caddy.rating" role="group" aria-label="Rating for Birdie Phone Caddy"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-caddy">Anything to say about it?</label><textarea id="note-caddy" data-key="page.caddy.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="bundle"><div class="meta"><span class="num">04</span><h3>Cart Essentials Bundle</h3></div><p>Boom plus Caddy together. Does the deal make sense?</p><div class="shots"><a class="shot d" href="img/full/bundle-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/bundle-desktop.jpg" width="960" height="600" alt="Cart Essentials Bundle on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/bundle-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/bundle-mobile.jpg" width="236" height="511" alt="Cart Essentials Bundle on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.bundle.rating" role="group" aria-label="Rating for Cart Essentials Bundle"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-bundle">Anything to say about it?</label><textarea id="note-bundle" data-key="page.bundle.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="shop"><div class="meta"><span class="num">05</span><h3>Shop (all products)</h3></div><p>Easy to scan? Would you know where to tap next?</p><div class="shots"><a class="shot d" href="img/full/shop-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/shop-desktop.jpg" width="960" height="600" alt="Shop (all products) on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/shop-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/shop-mobile.jpg" width="236" height="511" alt="Shop (all products) on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.shop.rating" role="group" aria-label="Rating for Shop (all products)"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-shop">Anything to say about it?</label><textarea id="note-shop" data-key="page.shop.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="cart"><div class="meta"><span class="num">06</span><h3>Cart</h3></div><p>Clear what you're buying, what it costs and what shipping is?</p><div class="shots"><a class="shot d" href="img/full/cart-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/cart-desktop.jpg" width="960" height="600" alt="Cart on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/cart-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/cart-mobile.jpg" width="236" height="511" alt="Cart on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.cart.rating" role="group" aria-label="Rating for Cart"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-cart">Anything to say about it?</label><textarea id="note-cart" data-key="page.cart.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="about"><div class="meta"><span class="num">07</span><h3>About</h3></div><p>Does the story land? Would you trust these people with your card?</p><div class="shots"><a class="shot d" href="img/full/about-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/about-desktop.jpg" width="960" height="600" alt="About on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/about-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/about-mobile.jpg" width="236" height="511" alt="About on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.about.rating" role="group" aria-label="Rating for About"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-about">Anything to say about it?</label><textarea id="note-about" data-key="page.about.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article><article class="card" data-page="faq"><div class="meta"><span class="num">08</span><h3>FAQ</h3></div><p>Questions you'd actually ask, answered?</p><div class="shots"><a class="shot d" href="img/full/faq-desktop.jpg" data-dev="desktop" target="_blank" rel="noopener"><img src="img/faq-desktop.jpg" width="960" height="600" alt="FAQ on a computer" loading="lazy"><span class="tag">Computer</span></a><a class="shot m" href="img/full/faq-mobile.jpg" data-dev="mobile" target="_blank" rel="noopener"><img src="img/faq-mobile.jpg" width="236" height="511" alt="FAQ on a phone" loading="lazy"><span class="tag">Phone · tap for full page</span></a></div><div class="rate"><span class="q">How does this page feel?</span><div class="seg stars" data-key="page.faq.rating" role="group" aria-label="Rating for FAQ"><button type="button" class="opt" data-v="1" aria-pressed="false" aria-label="1 out of 5">1</button><button type="button" class="opt" data-v="2" aria-pressed="false" aria-label="2 out of 5">2</button><button type="button" class="opt" data-v="3" aria-pressed="false" aria-label="3 out of 5">3</button><button type="button" class="opt" data-v="4" aria-pressed="false" aria-label="4 out of 5">4</button><button type="button" class="opt" data-v="5" aria-pressed="false" aria-label="5 out of 5">5</button></div><div class="ends"><span>Rough</span><span>Love it</span></div></div><div class="note"><label for="note-faq">Anything to say about it?</label><textarea id="note-faq" data-key="page.faq.note" rows="2" maxlength="1000" placeholder="What works, what doesn't, what's missing"></textarea></div></article></div>
+  </section>
+
+  <section id="overall">
+    <header class="sec"><span class="step">Part 3</span><h2>Overall</h2></header>
+    <div class="overall">
+      <div class="field"><label class="lbl" for="q-words">First impression, in a few words</label><input type="text" id="q-words" data-key="overall.words" maxlength="120" placeholder="e.g. clean, bold, bit dark"></div>
+      <div class="field"><span class="q">Would you buy from this site?</span>
+        <div class="seg" data-key="overall.buy" role="group"><button type="button" class="opt" data-v="yes" aria-pressed="false">Yes</button><button type="button" class="opt" data-v="maybe" aria-pressed="false">Maybe</button><button type="button" class="opt" data-v="no" aria-pressed="false">No</button></div></div>
+      <div class="field"><label class="lbl" for="q-broken">Anything confusing, broken or weird?</label><textarea id="q-broken" data-key="overall.broken" maxlength="1000" placeholder="Especially on your phone. Where did you get lost?"></textarea></div>
+      <div class="field"><label class="lbl" for="q-change">If you could change one thing, what would it be?</label><textarea id="q-change" data-key="overall.change" maxlength="1000"></textarea></div>
+      <div class="field"><label class="lbl" for="q-other">Anything else?</label><textarea id="q-other" data-key="overall.other" maxlength="1000"></textarea></div>
+    </div>
+    <div class="thanks" id="thanks" hidden><h3>Cheers, that's saved.</h3><p>Everything you've entered is in. Change anything any time and it saves again.</p></div>
+  </section>
+</div>
+<div class="wrap results" id="results" hidden></div>
+</main>
+
+<div class="bar" role="region" aria-label="Progress"><div class="wrap">
+  <span class="prog" id="prog">0 of 0 answered</span>
+  <span class="save" id="save"></span>
+  <button type="button" class="cta" id="finish">I'm done</button>
+</div></div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Full page view" hidden>
+  <div class="zoom-bar">
+    <div class="zoom-title" id="zoom-title"></div>
+    <button type="button" class="zbtn" id="z-prev" aria-label="Previous">&larr;</button>
+    <button type="button" class="zbtn" id="z-next" aria-label="Next">&rarr;</button>
+    <button type="button" class="zbtn" id="z-out" aria-label="Smaller">&minus;</button>
+    <span class="zoom-pct" id="z-pct">fit</span>
+    <button type="button" class="zbtn" id="z-in" aria-label="Bigger">+</button>
+    <button type="button" class="zbtn" id="z-close" aria-label="Close">&times;</button>
+  </div>
+  <div class="zoom-stage" id="zoom-stage"><img id="zoom-img" alt="" draggable="false"></div>
+</div>
+
+<script>
+var LABELS = {"name": "your name", "device": "what you're on", "page.home": "Home page", "page.home.rating": "Home page rating", "page.boom": "Birdie Boom", "page.boom.rating": "Birdie Boom rating", "page.caddy": "Birdie Phone Caddy", "page.caddy.rating": "Birdie Phone Caddy rating", "page.bundle": "Cart Essentials Bundle", "page.bundle.rating": "Cart Essentials Bundle rating", "page.shop": "Shop (all products)", "page.shop.rating": "Shop (all products) rating", "page.cart": "Cart", "page.cart.rating": "Cart rating", "page.about": "About", "page.about.rating": "About rating", "page.faq": "FAQ", "page.faq.rating": "FAQ rating", "task.price": "Find out how much the Birdie Boom costs.", "task.cart": "Add the Cart Essentials Bundle to your cart.", "task.ship": "Find out how long shipping takes to get to you.", "overall.words": "First impression", "overall.buy": "Would you buy from this site?", "overall.broken": "Confusing, broken or weird", "overall.change": "One thing to change", "overall.other": "Anything else"};
+(function () {
+  var CFG = window.BM_REVIEW || {};
+  var KEY = "bm-review-v1";
+  var REQUIRED = ["name", "device", "task.price", "task.cart", "task.ship", "page.home.rating", "page.boom.rating", "page.caddy.rating", "page.bundle.rating", "page.shop.rating", "page.cart.rating", "page.about.rating", "page.faq.rating", "overall.buy"];   // keys that count toward "x of y answered"
+  var state = { voter: "", name: "", device: "", answers: {} };
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved && saved.voter) state = saved; } catch (e) {}
+  if (!state.voter) { state.voter = "v_" + Math.random().toString(36).slice(2, 12) + Date.now().toString(36); }
+  var statusEl = document.getElementById("status"), saveEl = document.getElementById("save"), progEl = document.getElementById("prog");
+  var dirty = false, timer = null, writing = false, online = !!CFG.url;
+
+  function setStatus(t) { statusEl.hidden = !t; statusEl.textContent = t || ""; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function answered() {
+    var n = 0;
+    REQUIRED.forEach(function (k) {
+      if (k === "name") { if (state.name.trim()) n++; }
+      else if (k === "device") { if (state.device) n++; }
+      else if (state.answers[k] !== undefined && state.answers[k] !== "") n++;
+    });
+    return n;
+  }
+  function render() {
+    document.getElementById("name-in").value = state.name;
+    document.querySelectorAll(".seg").forEach(function (seg) {
+      var k = seg.dataset.key, v = k === "device" ? state.device : state.answers[k];
+      seg.querySelectorAll(".opt").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.v) === String(v) ? "true" : "false"); });
+    });
+    document.querySelectorAll("textarea[data-key], input[type=text][data-key]").forEach(function (el) {
+      if (document.activeElement !== el) el.value = state.answers[el.dataset.key] || "";
+    });
+    document.querySelectorAll(".card").forEach(function (c) { c.classList.toggle("done", !!state.answers["page." + c.dataset.page + ".rating"]); });
+    document.querySelectorAll(".task").forEach(function (t) {
+      var v = state.answers["task." + t.dataset.task];
+      t.querySelector(".tnote").hidden = !v;
+      t.querySelector(".tnote label").textContent = v === "stuck" ? "What tripped you up?" : "Any comment? (optional)";
+    });
+    progEl.textContent = answered() + " of " + REQUIRED.length + " answered";
+  }
+  function set(key, value) {
+    if (key === "name") state.name = value; else if (key === "device") state.device = value;
+    else if (value === "" || value === null || value === undefined) delete state.answers[key]; else state.answers[key] = value;
+    dirty = true; persist(); render(); schedule();
+  }
+  function schedule() { clearTimeout(timer); timer = setTimeout(flush, 1200); saveEl.textContent = online ? "Saving…" : "Saved on this device"; }
+  function flush(retried) {
+    if (!online || writing || !dirty) return;
+    writing = true; dirty = false;
+    var body = JSON.stringify({ voter: state.voter, name: state.name, device: state.device, answers: state.answers, labels: LABELS });
+    fetch(CFG.url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+      .then(function (r) { return r.json(); })
+      .then(function (res) { if (!res.ok) throw new Error(res.error || "save failed"); saveEl.textContent = "Saved"; })
+      .catch(function () {
+        dirty = true;
+        if (!retried) { writing = false; setTimeout(function () { flush(true); }, 2000 + Math.random() * 2000); return; }
+        saveEl.textContent = "Couldn't reach the server, will retry";
+        setTimeout(function () { writing = false; flush(); }, 15000);
+      })
+      .then(function () { writing = false; if (dirty) schedule(); });
+  }
+
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".opt");
+    if (b && b.closest(".seg")) {
+      var k = b.closest(".seg").dataset.key;
+      var cur = k === "device" ? state.device : state.answers[k];
+      var v = b.dataset.v; if (/^\d$/.test(v)) v = Number(v);
+      set(k, String(cur) === String(v) ? "" : v);
+    }
+  });
+  document.getElementById("name-in").addEventListener("input", function (e) { set("name", e.target.value.slice(0, 40)); });
+  document.addEventListener("input", function (e) {
+    var el = e.target;
+    if (el.matches("textarea[data-key], input[type=text][data-key]")) { set(el.dataset.key, el.value); }
+  });
+  document.getElementById("finish").addEventListener("click", function () {
+    var missing = REQUIRED.filter(function (k) {
+      if (k === "name") return !state.name.trim();
+      if (k === "device") return !state.device;
+      return state.answers[k] === undefined || state.answers[k] === "";
+    });
+    if (missing.length) {
+      var k = missing[0];
+      var el = k === "name" ? document.getElementById("name-in") : k === "device" ? document.querySelector('[data-key="device"]') : document.querySelector('[data-key="' + k + '"]');
+      if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); if (el.focus) el.focus({ preventScroll: true }); }
+      setStatus(missing.length + " left: " + missing.map(function (m) { return LABELS[m] || m; }).slice(0, 4).join(", ") + (missing.length > 4 ? "…" : ""));
+      setTimeout(function () { setStatus(""); }, 6000);
+      return;
+    }
+    flush();
+    document.getElementById("thanks").hidden = false;
+    document.getElementById("thanks").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  window.addEventListener("beforeunload", function () { if (dirty && online) { try { navigator.sendBeacon(CFG.url, JSON.stringify({ voter: state.voter, name: state.name, device: state.device, answers: state.answers })); } catch (e) {} } });
+
+  /* Zoom viewer: every shot in page order; scroll to read, +/- for width. */
+  var zoom = document.getElementById("zoom"), stage = document.getElementById("zoom-stage"), zimg = document.getElementById("zoom-img"),
+      ztitle = document.getElementById("zoom-title"), zpct = document.getElementById("z-pct");
+  var shots = [], cur = -1, widthMode = 0, WIDTHS = [0, 1, 1.5, 2, 3], lastFocus = null, lastTap = 0;
+  function sizeImg() {
+    var f = WIDTHS[widthMode];
+    if (!f) { // fit: desktop fits the stage width, phone shots show at their natural CSS width (half the 2x pixels), capped to the stage
+      var nat = shots[cur].dev === "mobile" ? zimg.naturalWidth / 2 : zimg.naturalWidth;
+      zimg.style.width = Math.min(stage.clientWidth, nat) + "px"; zpct.textContent = "fit";
+    } else {
+      zimg.style.width = Math.round(stage.clientWidth * f) + "px"; zpct.textContent = Math.round(f * 100) + "%";
+    }
+  }
+  function show(i) {
+    cur = (i + shots.length) % shots.length;
+    var s = shots[cur];
+    widthMode = 0; stage.scrollTop = 0; stage.scrollLeft = 0;
+    zimg.src = s.full; zimg.alt = s.title + " (" + s.dev + ")";
+    ztitle.innerHTML = ""; var n = document.createElement("span"); n.textContent = s.num; ztitle.appendChild(n);
+    ztitle.appendChild(document.createTextNode(s.title + " · " + (s.dev === "mobile" ? "phone" : "computer")));
+    if (zimg.complete) sizeImg(); else zimg.onload = sizeImg;
+  }
+  function openZoom(a) {
+    shots = Array.prototype.map.call(document.querySelectorAll(".shot"), function (el) {
+      var card = el.closest(".card");
+      return { full: el.getAttribute("href"), dev: el.dataset.dev, title: card.querySelector("h3").textContent, num: card.querySelector(".num").textContent, el: el };
+    });
+    lastFocus = document.activeElement; zoom.hidden = false; document.body.style.overflow = "hidden";
+    show(shots.findIndex(function (s) { return s.el === a; }));
+    document.getElementById("z-close").focus();
+  }
+  function closeZoom() { zoom.hidden = true; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener("click", function (e) { var a = e.target.closest(".shot"); if (a) { e.preventDefault(); openZoom(a); } });
+  document.getElementById("z-close").addEventListener("click", closeZoom);
+  document.getElementById("z-prev").addEventListener("click", function () { show(cur - 1); });
+  document.getElementById("z-next").addEventListener("click", function () { show(cur + 1); });
+  document.getElementById("z-in").addEventListener("click", function () { widthMode = Math.min(WIDTHS.length - 1, widthMode + 1); sizeImg(); });
+  document.getElementById("z-out").addEventListener("click", function () { widthMode = Math.max(0, widthMode - 1); sizeImg(); });
+  stage.addEventListener("dblclick", function () { widthMode = widthMode ? 0 : 2; sizeImg(); });
+  stage.addEventListener("pointerdown", function (e) { if (e.pointerType !== "touch") return; var now = Date.now(); if (now - lastTap < 300) { widthMode = widthMode ? 0 : 2; sizeImg(); } lastTap = now; });
+  document.addEventListener("keydown", function (e) {
+    if (zoom.hidden) return;
+    if (e.key === "Escape") closeZoom(); else if (e.key === "ArrowRight") show(cur + 1); else if (e.key === "ArrowLeft") show(cur - 1);
+  });
+  window.addEventListener("resize", function () { if (!zoom.hidden) sizeImg(); });
+
+  /* Results view for Dan: #results=<key> */
+  function results(key) {
+    document.getElementById("form").hidden = true; document.getElementById("whobox").hidden = true; document.querySelector(".bar").hidden = true;
+    document.getElementById("intro").textContent = "Results. Only visible with the key.";
+    var box = document.getElementById("results"); box.hidden = false; box.textContent = "Loading…";
+    fetch(CFG.url + "?key=" + encodeURIComponent(key)).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.ok || !res.responses) { box.textContent = "No access."; return; }
+      var people = res.responses.filter(function (r) { return Object.keys(r.answers).length; });
+      var lab = res.labels || LABELS, h = "";
+      h += "<header class='sec'><h2>" + people.length + " responses</h2><p>" + people.map(function (p) { return (p.name || "Someone") + " (" + (p.device || "?") + ")"; }).join(", ") + "</p></header>";
+      h += "<table class='rtable'><tr><th>Page</th><th>Average</th><th>1 · 2 · 3 · 4 · 5</th><th>Comments</th></tr>";
+      var pages = {}; people.forEach(function (p) { Object.keys(p.answers).forEach(function (k) { var m = k.match(/^page\.([a-z0-9-]+)\./); if (m) pages[m[1]] = 1; }); });
+      Object.keys(pages).forEach(function (pg) {
+        var d = [0, 0, 0, 0, 0, 0], sum = 0, n = 0, notes = [];
+        people.forEach(function (p) { var v = p.answers["page." + pg + ".rating"]; if (v >= 1) { d[v]++; sum += v; n++; } var t = p.answers["page." + pg + ".note"]; if (t) notes.push("<b>" + esc(p.name || "Someone") + "</b> " + esc(t)); });
+        h += "<tr><td>" + esc(lab["page." + pg] || pg) + "</td><td class='avg'>" + (n ? (sum / n).toFixed(1) : "–") + "</td><td class='dist'>" + d.slice(1).join(" · ") + "</td><td><ul class='rlist'><li>" + notes.join("</li><li>") + "</li></ul></td></tr>";
+      });
+      h += "</table>";
+      h += "<table class='rtable'><tr><th>Task</th><th>Done</th><th>Stuck</th><th>Comments</th></tr>";
+      var tasks = {}; people.forEach(function (p) { Object.keys(p.answers).forEach(function (k) { var m = k.match(/^task\.([a-z0-9-]+)$/); if (m) tasks[m[1]] = 1; }); });
+      Object.keys(tasks).forEach(function (t) {
+        var done = 0, stuck = 0, notes = [];
+        people.forEach(function (p) { var v = p.answers["task." + t]; if (v === "done") done++; if (v === "stuck") stuck++; var nt = p.answers["task." + t + ".note"]; if (nt) notes.push("<b>" + esc(p.name || "Someone") + "</b> " + esc(nt)); });
+        h += "<tr><td>" + esc(lab["task." + t] || t) + "</td><td class='avg'>" + done + "</td><td class='avg'>" + stuck + "</td><td><ul class='rlist'><li>" + notes.join("</li><li>") + "</li></ul></td></tr>";
+      });
+      h += "</table>";
+      var buy = { yes: 0, maybe: 0, no: 0 }; people.forEach(function (p) { if (buy.hasOwnProperty(p.answers["overall.buy"])) buy[p.answers["overall.buy"]]++; });
+      h += "<header class='sec'><h2>Would they buy?</h2><p>Yes " + buy.yes + " · Maybe " + buy.maybe + " · No " + buy.no + "</p></header>";
+      ["overall.words", "overall.broken", "overall.change", "overall.other"].forEach(function (k) {
+        var list = people.filter(function (p) { return p.answers[k]; }).map(function (p) { return "<li><b>" + esc(p.name || "Someone") + "</b> " + esc(p.answers[k]) + "</li>"; });
+        h += "<header class='sec'><h2>" + esc(lab[k] || k) + "</h2></header><ul class='rlist'>" + (list.join("") || "<li>Nothing yet</li>") + "</ul>";
+      });
+      box.innerHTML = h;
+    }).catch(function () { box.textContent = "Couldn't load results."; });
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  var m = location.hash.match(/results=([^&]+)/);
+  if (m && CFG.url) { results(decodeURIComponent(m[1])); return; }
+  render();
+  if (!online) { setStatus("Answers are saving on this device for now. Dan will switch on the collection shortly, then they'll upload automatically when you reopen this page."); saveEl.textContent = "Saved on this device"; }
+  else {
+    fetch(CFG.url).then(function (r) { return r.json(); }).then(function (res) {
+      if (res && typeof res.count === "number" && res.count) setStatus(res.count + (res.count === 1 ? " person has" : " people have") + " had their say so far.");
+      if (Object.keys(state.answers).length || state.name) { dirty = true; schedule(); }
+    }).catch(function () {});
+  }
+})();
+</script>
+</body>
+</html>
