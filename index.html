@@ -8,12 +8,12 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Questrial&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Archivo:wght@400;500;600&display=swap">
 <style>
 /* Same dark brand look as the polo vote: black band, numbered steps, cards, sticky progress bar. */
 :root {
-  --ink: #0b0b0b; --panel: #161616; --line: #2a2a2a; --paper: #f4f4f2; --muted: #a3a29c; --yellow: #feec45;
-  --display: "Oswald", "Arial Narrow", sans-serif; --body: "Century Gothic", "Questrial", "Avenir", sans-serif;
+  --ink: #17110d; --panel: #221a14; --line: #342a22; --paper: #ffffff; --muted: #a89f97; --accent: #076652; --accent-text: #4cc2a0; --on-accent: #ffffff;
+  --display: "Oswald", "Arial Narrow", sans-serif; --body: "Archivo", "Century Gothic", "Avenir", sans-serif;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -24,46 +24,46 @@ img { max-width: 100%; }
 .top { border-bottom: 1px solid var(--line); }
 .top .wrap { padding-block: 32px 28px; display: grid; gap: 18px; }
 .top img { width: 190px; height: auto; }
-h1 { font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
-h1 em { font-style: normal; color: var(--yellow); }
+h1 { font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--accent-text); }
 .intro { max-width: 66ch; color: var(--muted); margin: 0; }
 .intro strong { color: var(--paper); font-weight: 400; }
-.status { margin: 0; max-width: 70ch; padding: 10px 14px; background: var(--panel); border-left: 3px solid var(--yellow); color: var(--paper); font-size: 14px; }
+.status { margin: 0; max-width: 70ch; padding: 10px 14px; background: var(--panel); border-left: 3px solid var(--accent-text); color: var(--paper); font-size: 14px; }
 main .wrap { padding-block: 8px 130px; display: grid; gap: 48px; }
 section { display: grid; gap: 18px; }
 .sec { display: grid; gap: 6px; padding-top: 36px; border-top: 1px solid var(--line); }
 section:first-of-type .sec { border-top: 0; }
-.step { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: var(--ink); background: var(--yellow); padding: 3px 8px; width: max-content; }
-h2 { font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: 26px; letter-spacing: 0.04em; margin: 0; }
+.step { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: var(--on-accent); background: var(--accent); padding: 3px 8px; width: max-content; }
+h2 { font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: 26px; letter-spacing: 0.04em; margin: 0; }
 .sec p { margin: 0; color: var(--muted); max-width: 70ch; }
 .sec p strong { color: var(--paper); font-weight: 400; }
-label.lbl, .q { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; color: var(--yellow); }
+label.lbl, .q { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; color: var(--accent-text); }
 .field { display: grid; gap: 8px; max-width: 560px; }
 input[type=text], textarea { width: 100%; font: inherit; font-size: 15px; color: var(--paper); background: var(--ink); border: 1px solid var(--line); padding: 9px 12px; }
-input[type=text]:focus, textarea:focus { outline: none; border-color: var(--yellow); }
+input[type=text]:focus, textarea:focus { outline: none; border-color: var(--accent-text); }
 textarea { resize: vertical; font-size: 14px; min-height: 64px; }
 .seg { display: flex; flex-wrap: wrap; }
 .opt { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; padding: 9px 14px; background: transparent; color: var(--paper); border: 1px solid var(--line); cursor: pointer; min-width: 44px; }
 .opt + .opt { border-left: 0; }
-.opt:hover { color: var(--yellow); }
-.opt[aria-pressed="true"] { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.opt:hover { color: var(--accent-text); }
+.opt[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .opt[data-v="stuck"][aria-pressed="true"], .opt[data-v="no"][aria-pressed="true"] { background: var(--paper); border-color: var(--paper); }
-.opt:focus-visible, .cta:focus-visible, .shot:focus-visible, .zbtn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
-.cta { display: inline-block; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 15px; padding: 12px 22px; background: var(--yellow); color: var(--ink); border: 0; cursor: pointer; text-decoration: none; }
-.cta.ghost { background: transparent; color: var(--yellow); border: 1px solid var(--yellow); }
+.opt:focus-visible, .cta:focus-visible, .shot:focus-visible, .zbtn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+.cta { display: inline-block; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 15px; padding: 12px 22px; background: var(--accent); color: var(--on-accent); border: 0; cursor: pointer; text-decoration: none; }
+.cta.ghost { background: transparent; color: var(--accent-text); border: 1px solid var(--accent-text); }
 .panel { background: var(--panel); border: 1px solid var(--line); padding: 16px; display: grid; gap: 12px; }
 .tasks { display: grid; gap: 14px; }
 .task { display: grid; gap: 10px; }
 .task .t { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .task .t b { font-weight: 400; flex: 1 1 260px; }
-.task .t .n { font-family: var(--display); color: var(--yellow); font-size: 18px; min-width: 1.4em; }
+.task .t .n { font-family: var(--display); color: var(--accent-text); font-size: 18px; min-width: 1.4em; }
 .task textarea { max-width: 560px; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 @media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }
 .card { background: var(--panel); border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
-.card.done { border-color: var(--yellow); }
+.card.done { border-color: var(--accent-text); }
 .meta { display: flex; align-items: baseline; gap: 12px; padding: 14px 16px 4px; }
-.num { font-family: var(--display); font-size: 15px; color: var(--yellow); font-variant-numeric: tabular-nums; }
+.num { font-family: var(--display); font-size: 15px; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.03em; font-size: 19px; margin: 0; flex: 1; min-width: 0; }
 .card > p { margin: 0; padding: 0 16px 12px; color: var(--muted); font-size: 14px; }
 .shots { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 0 16px; align-items: start; }
@@ -71,8 +71,8 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; l
 .shot img { display: block; width: 100%; height: auto; }
 .shot.m { width: 118px; }
 @media (max-width: 860px) { .shots { grid-template-columns: auto 1fr; } .shot.m { order: -1; width: 150px; } }
-.shot .tag { position: absolute; left: 0; bottom: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; background: rgba(11,11,11,.85); color: var(--paper); padding: 3px 7px; }
-.shot:hover .tag { color: var(--yellow); }
+.shot .tag { position: absolute; left: 0; bottom: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; background: rgba(23,17,13,.88); color: var(--paper); padding: 3px 7px; }
+.shot:hover .tag { color: var(--accent-text); }
 .rate { display: grid; gap: 6px; padding: 14px 16px 0; }
 .rate .q { color: var(--muted); }
 .stars { display: flex; align-items: stretch; }
@@ -81,21 +81,21 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; l
 .note { display: grid; gap: 6px; padding: 10px 16px 16px; }
 .note label { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: var(--muted); }
 .overall { display: grid; gap: 22px; max-width: 640px; }
-.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--yellow); color: var(--ink); padding-bottom: env(safe-area-inset-bottom, 0px); z-index: 5; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--accent); color: var(--on-accent); padding-bottom: env(safe-area-inset-bottom, 0px); z-index: 5; }
 .bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 12px; }
 .bar .prog { flex: 1; min-width: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 16px; }
-.bar .save { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; opacity: .75; }
-.bar .cta { background: var(--ink); color: var(--yellow); font-size: 13px; padding: 8px 16px; }
-.thanks { padding: 18px; background: var(--panel); border: 1px solid var(--yellow); max-width: 560px; }
+.bar .save { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; opacity: .85; }
+.bar .cta { background: var(--ink); color: var(--accent-text); font-size: 13px; padding: 8px 16px; }
+.thanks { padding: 18px; background: var(--panel); border: 1px solid var(--accent-text); max-width: 560px; }
 .thanks h3 { font-size: 24px; margin-bottom: 6px; }
 .thanks p { margin: 0; color: var(--muted); }
 /* Zoom: a full-screen scroller. Tall pages scroll naturally; +/- change the image width. */
 .zoom { position: fixed; inset: 0; z-index: 20; background: var(--ink); display: flex; flex-direction: column; }
 .zoom-bar { display: flex; align-items: center; gap: 8px; padding-top: calc(10px + env(safe-area-inset-top, 0px)); padding-bottom: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 1px solid var(--line); }
 .zoom-title { flex: 1; min-width: 0; font-family: var(--display); text-transform: uppercase; letter-spacing: 0.04em; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.zoom-title span { color: var(--yellow); margin-right: 10px; }
+.zoom-title span { color: var(--accent-text); margin-right: 10px; }
 .zbtn { font-family: var(--display); font-size: 16px; min-width: 40px; height: 40px; padding: 0 12px; background: transparent; color: var(--paper); border: 1px solid var(--line); cursor: pointer; }
-.zbtn:hover { border-color: var(--yellow); color: var(--yellow); }
+.zbtn:hover { border-color: var(--accent-text); color: var(--accent-text); }
 .zoom-pct { font-family: var(--display); font-size: 13px; color: var(--muted); min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; }
 .zoom-stage { flex: 1 1 auto; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; text-align: center; padding-bottom: env(safe-area-inset-bottom, 0px); }
 .zoom-stage img { display: inline-block; height: auto; vertical-align: top; }
@@ -105,10 +105,10 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; l
 .rtable { width: 100%; border-collapse: collapse; font-size: 14px; }
 .rtable th, .rtable td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .rtable th { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; color: var(--muted); font-weight: 400; }
-.rtable .avg { font-family: var(--display); font-size: 20px; color: var(--yellow); }
+.rtable .avg { font-family: var(--display); font-size: 20px; color: var(--accent-text); }
 .rtable .dist { font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
 .rlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14px; }
-.rlist b { font-weight: 400; color: var(--yellow); }
+.rlist b { font-weight: 400; color: var(--accent-text); }
 </style>
 <script src="config.js"></script>
 </head>
@@ -138,7 +138,7 @@ h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; l
   <section id="try">
     <header class="sec"><span class="step">Part 1</span><h2>Try it for real</h2>
       <p>Open the preview site (it opens in a new tab, no password needed), then try these three things. Come back here and tell us how each one went.</p></header>
-    <p><a class="cta" href="https://s6eymnm249u4lq4d-72857780480.shopifypreview.com/" target="_blank" rel="noopener">Open the preview site &rarr;</a></p>
+    <p><a class="cta" href="https://t88ka6212snwwq86-72857780480.shopifypreview.com/" target="_blank" rel="noopener">Open the preview site &rarr;</a></p>
     <div class="panel tasks"><div class="task" data-task="price"><div class="t"><span class="n">1</span><b>Find out how much the Birdie Boom costs.</b><div class="seg" data-key="task.price" role="group" aria-label="Task 1"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-price">What tripped you up?</label><textarea id="tnote-price" data-key="task.price.note" rows="2" maxlength="1000"></textarea></div></div><div class="task" data-task="cart"><div class="t"><span class="n">2</span><b>Add the Cart Essentials Bundle to your cart.</b><div class="seg" data-key="task.cart" role="group" aria-label="Task 2"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-cart">What tripped you up?</label><textarea id="tnote-cart" data-key="task.cart.note" rows="2" maxlength="1000"></textarea></div></div><div class="task" data-task="ship"><div class="t"><span class="n">3</span><b>Find out how long shipping takes to get to you.</b><div class="seg" data-key="task.ship" role="group" aria-label="Task 3"><button type="button" class="opt" data-v="done" aria-pressed="false">Done, easy</button><button type="button" class="opt" data-v="stuck" aria-pressed="false">Got stuck</button></div></div><div class="note tnote" hidden style="padding:0"><label for="tnote-ship">What tripped you up?</label><textarea id="tnote-ship" data-key="task.ship.note" rows="2" maxlength="1000"></textarea></div></div></div>
   </section>
 
