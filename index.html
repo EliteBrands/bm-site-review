@@ -218,7 +218,7 @@ var LABELS = {"name": "your name", "device": "what you're on", "page.home": "Hom
   try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved && saved.voter) state = saved; } catch (e) {}
   if (!state.voter) { state.voter = "v_" + Math.random().toString(36).slice(2, 12) + Date.now().toString(36); }
   var statusEl = document.getElementById("status"), saveEl = document.getElementById("save"), progEl = document.getElementById("prog");
-  var dirty = false, timer = null, writing = false, online = !!CFG.url;
+  var dirty = false, timer = null, writing = false, online = !!CFG.url && location.protocol !== "file:";   // local builds never post to the live sheet
 
   function setStatus(t) { statusEl.hidden = !t; statusEl.textContent = t || ""; }
   function persist() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
